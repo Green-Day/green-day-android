@@ -3,4 +3,15 @@
     <string name="sing_up">Зарегестрироваться</string>
     <string name="sing_in">Войти</string>
     <string name="app_logo">app logo</string>
+    <string name="background">Background</string>
+    <string name="authorization">Авторизация</string>
+    <string name="Password">Пароль</string>
+    <string name="login">Логин</string>
+    <string name="bottom_nav_map">Карта</string>
+    <string name="bottom_nav_home">Домашняя</string>
+    <string name="bottom_nav_recycler">Переработка</string>
+    <string name="bottom_nav_profile">Профиль</string>
+    <string name="new_password">Новый пароль</string>
+    <string name="repeat_new_password">Повторите пароль</string>
+    <string name="registration">Регистрация</string>
 </resources>

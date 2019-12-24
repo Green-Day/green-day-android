@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_home"
+        android:icon="@drawable/ic_home_primary_24dp"
+        android:title="@string/bottom_nav_home" />
+
+    <item
+        android:id="@+id/fragment_map"
+        android:icon="@drawable/ic_map_primary_24dp"
+        android:title="@string/bottom_nav_map" />
+
+    <item
+        android:id="@+id/fragment_waste_recycler"
+        android:icon="@drawable/ic_recycle_primary_24dp"
+        android:title="@string/bottom_nav_recycler" />
+
+    <item
+        android:id="@+id/fragment_user_profile"
+        android:icon="@drawable/ic_account_circle_primary_24dp"
+        android:title="@string/bottom_nav_profile" />
+</menu>
