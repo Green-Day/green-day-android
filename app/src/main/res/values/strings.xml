@@ -14,4 +14,12 @@
     <string name="new_password">Новый пароль</string>
     <string name="repeat_new_password">Повторите пароль</string>
     <string name="registration">Регистрация</string>
+    <string name="next">Далее</string>
+    <string name="new_user">Новый пользователь</string>
+    <string name="email">Email</string>
+    <string name="back">Назад</string>
+    <string name="Create">Создать</string>
+    <string name="options_title">Настройки</string>
+    <string name="inf_title">Что можно утилизировать?</string>
+    <string name="processing">Переработка</string>
 </resources>

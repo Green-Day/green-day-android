@@ -1,4 +1,4 @@
-package com.dev.recyclica.fragment;
+package com.dev.recyclica.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.dev.recyclica.R;
+import com.dev.recyclica.views.SingUpView;
 
 import moxy.MvpAppCompatFragment;
 
-public class SingUpFragment extends MvpAppCompatFragment {
+public class SingUpFragment extends MvpAppCompatFragment implements SingUpView {
 
     public final static String TAG = "Authorization";
 

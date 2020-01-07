@@ -1,4 +1,4 @@
-package com.dev.recyclica.fragment;
+package com.dev.recyclica.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.dev.recyclica;
+package com.dev.recyclica.views;
 
 import moxy.MvpView;
 

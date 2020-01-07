@@ -2,15 +2,14 @@ package com.dev.recyclica;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.dev.greenday.fragment.AuthorizationFragment;
+import com.dev.recyclica.fragments.AuthorizationFragment;
 
 import moxy.MvpAppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MvpAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

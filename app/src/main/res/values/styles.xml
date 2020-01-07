@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SplashScreen" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_authorization</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/title</item>
+    </style>
+    <style name="Information">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 </resources>
