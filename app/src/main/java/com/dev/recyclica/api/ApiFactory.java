@@ -17,8 +17,7 @@ public class ApiFactory {
             OkHttpClient unsafeClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
             if (api == null)
                 api = new Retrofit.Builder()
-                        .baseUrl(ApiConfig.url)
-                        .client(unsafeClient)
+                        .baseUrl(AppConfig.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())
                         .build().create(Api.class);
         }

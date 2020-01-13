@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.dev.recyclica.api.Api;
 import com.dev.recyclica.api.ApiFactory;
-import com.dev.recyclica.dto.User;
+import com.dev.recyclica.dto.Answer;
 import com.dev.recyclica.views.SignUpView;
 
 import moxy.MvpPresenter;
@@ -27,20 +27,25 @@ public class SignUpPresenter extends MvpPresenter<SignUpView> {
                                       String fullname,
                                       String password,
                                       int phone) {
-        Call<User> call = api.getRegistratedUser(username, fullname, password, phone);
-        call.enqueue(new Callback<User>() {
+        Call<Answer> call = api.getRegistratedUser(username, fullname, password, phone);
+        call.enqueue(new Callback<Answer>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<Answer> call, Response<Answer> response) {
                 if (response.isSuccessful()) {
-                    User user = response.body();
-                    Log.i(TAG, "User: " + user.toString());
+                    Answer answer = response.body();
+                    if (answer != null && answer.getError() != null) {
+                        Log.i(TAG, "User: " + answer.getUser().toString());
+                    } else {
+                        Log.e(TAG, "Error: " + answer.getError());
+
+                    }
                 } else {
                     Log.e(TAG, "onResponse: " + response.code());
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Answer> call, Throwable t) {
                 Log.e(TAG, "Failed " + t.getMessage());
             }
         });
