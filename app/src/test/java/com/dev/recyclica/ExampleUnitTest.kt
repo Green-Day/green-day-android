@@ -1,4 +1,4 @@
-package com.dev.greenday
+package com.dev.recyclica
 
 import org.junit.Test
 

@@ -26,6 +26,7 @@ android {
 }
 
 def moxyVersion = "2.0.2"
+def daggerVersion = "2.24"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -53,4 +54,11 @@ dependencies {
     annotationProcessor "com.github.moxy-community:moxy-compiler:$moxyVersion"
     implementation "com.github.moxy-community:moxy-androidx:$moxyVersion"
 
+    //Dagger2
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    //Retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 }
