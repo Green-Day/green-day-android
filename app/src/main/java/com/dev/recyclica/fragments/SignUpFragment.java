@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,7 +49,7 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
         presenter.registrationWithPhone(mEditTextLogin.getText().toString(),
                 mEditTextLogin.getText().toString(),
                 mEditTextFirstPassword.getText().toString(),
-                80000000);
+                "kavoo@mail.ru");
 //        final FragmentManager manager = getFragmentManager();
 //        if (manager != null) {
 //            final Fragment fragment = manager.findFragmentByTag(AuthorizationFragment.TAG);
@@ -59,6 +60,8 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
 //        }
 
     }
+
+
 
     @Nullable
     @Override
@@ -73,5 +76,14 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void showMessage(String msg) {
+        if (msg != null) {
+            Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getActivity(), "String is null", Toast.LENGTH_LONG).show();
+        }
     }
 }

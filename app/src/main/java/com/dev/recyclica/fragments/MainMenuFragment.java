@@ -50,6 +50,8 @@ public class MainMenuFragment extends MvpAppCompatFragment {
             return true;
         });
 
+        mBottomNavigation.setOnNavigationItemReselectedListener(menuItem -> {});
+
         return v;
     }
 

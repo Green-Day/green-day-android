@@ -20,7 +20,7 @@ public class MainActivity extends MvpAppCompatActivity {
             final FragmentManager manager = getSupportFragmentManager();
             final Fragment fragment = new AuthorizationFragment();
             manager.beginTransaction()
-                    .add(R.id.container, fragment, AuthorizationFragment.TAG)
+                    .add(R.id.activity_container, fragment, AuthorizationFragment.TAG)
                     .commit();
         }
     }

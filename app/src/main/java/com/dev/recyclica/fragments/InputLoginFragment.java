@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,34 +12,46 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.dev.recyclica.R;
-import com.dev.recyclica.views.SignInView;
+import com.google.android.material.textfield.TextInputLayout;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import moxy.MvpAppCompatFragment;
 
-public class SignInFragment extends MvpAppCompatFragment implements SignInView {
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
-    final static String TAG = "SignIn";
+public class InputLoginFragment extends MvpAppCompatFragment {
+
     private Unbinder unbinder;
 
-    @OnClick(R.id.bt_sign_in)
-    void singIn() {
+    @BindView(R.id.et_login)
+    EditText mEditTextLogin;
+
+    @BindView(R.id.et_login_layout)
+    TextInputLayout mEditTextLayoutLogin;
+
+    @OnClick(R.id.bt_next_step)
+    void nextStep() {
+        if (mEditTextLogin.getText().toString().trim().equals("")) {
+            mEditTextLayoutLogin.setError(getString(R.string.error_login_or_email_is_empty));
+            return;
+        }
+        final Fragment fragment = InputPasswordFragment.newInstance(mEditTextLogin.getText().toString());
         final FragmentManager manager = getFragmentManager();
-        final Fragment fragment = new MainMenuFragment();
         if (manager != null) {
             manager.beginTransaction()
-                    .replace(R.id.activity_container, fragment, MainMenuFragment.TAG)
+                    .addToBackStack(TAG)
+                    .replace(R.id.menu_container, fragment, SignUpFragment.TAG)
                     .commit();
         }
-
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.fragment_sign_in, container, false);
+        View v = inflater.inflate(R.layout.fragment_input_login, container, false);
         unbinder = ButterKnife.bind(this, v);
 
         return v;
@@ -49,4 +62,5 @@ public class SignInFragment extends MvpAppCompatFragment implements SignInView {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 }

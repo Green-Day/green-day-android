@@ -24,11 +24,12 @@ public class AuthorizationFragment extends MvpAppCompatFragment {
 
     @OnClick(R.id.bt_sign_up)
     void singUp() {
+        final Fragment fragment = new SignUpFragment();
         final FragmentManager manager = getFragmentManager();
         if (manager != null) {
             manager.beginTransaction()
                     .addToBackStack(TAG)
-                    .replace(R.id.container, new SignUpFragment(), SignUpFragment.TAG)
+                    .replace(R.id.activity_container, fragment, SignUpFragment.TAG)
                     .commit();
         }
     }
@@ -39,12 +40,14 @@ public class AuthorizationFragment extends MvpAppCompatFragment {
         final View v = inflater.inflate(R.layout.fragment_input, container, false);
         unbinder = ButterKnife.bind(this, v);
 
-        final FragmentManager manager = getFragmentManager();
-        final Fragment fragment = new SignInFragment();
-        if (manager != null) {
-            manager.beginTransaction()
-                    .replace(R.id.menu_container, fragment, SignInFragment.TAG)
-                    .commit();
+        if (savedInstanceState == null) {
+            final FragmentManager manager = getFragmentManager();
+            final Fragment fragment = new SignInFragment();
+            if (manager != null) {
+                manager.beginTransaction()
+                        .replace(R.id.menu_container, fragment, SignInFragment.TAG)
+                        .commit();
+            }
         }
 
         return v;

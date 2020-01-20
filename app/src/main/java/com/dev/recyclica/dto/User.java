@@ -3,6 +3,12 @@ package com.dev.recyclica.dto;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
+    public User(String username, String fullname, String password, String email) {
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+        this.email = email;
+    }
 
     @SerializedName("username")
     private String username;
@@ -17,9 +23,9 @@ public class User {
     private String email;
 
     @SerializedName("Phone")
-    private int phone;
+    private String phone;
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
@@ -37,14 +43,5 @@ public class User {
 
     public String getEmail() {
         return email;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(username + " ");
-        sb.append(fullname);
-
-        return sb.toString();
     }
 }

@@ -12,7 +12,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_rounded"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,9 +90,21 @@
                 android:hint="@string/login"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/firstPasswordLayout"
+                app:layout_constraintBottom_toTopOf="@+id/et_phone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:inputType="phone"
+                android:hint="@string/phone"
+                app:layout_constraintBottom_toTopOf="@+id/firstPasswordLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:importantForAutofill="no" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

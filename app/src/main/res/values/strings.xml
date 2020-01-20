@@ -22,4 +22,10 @@
     <string name="options_title">Настройки</string>
     <string name="inf_title">Что можно утилизировать?</string>
     <string name="processing">Переработка</string>
+    <string name="phone">Телефон</string>
+    <string name="your_login">Ваш логин</string>
+    <string name="login_or_email">Введите логин или email</string>
+    <string name="input_your_login_or_email">Введите логин или email</string>
+    <string name="error_passwords_is_not_equals">Пароли различаются</string>
+    <string name="error_login_or_email_is_empty">Логин или Email пустой</string>
 </resources>
