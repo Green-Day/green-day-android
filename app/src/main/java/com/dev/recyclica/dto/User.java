@@ -22,10 +22,17 @@ public class User {
     @SerializedName("email")
     private String email;
 
-    @SerializedName("Phone")
-    private String phone;
+    @SerializedName("phone")
+    private int phone;
 
-    public String getPhone() {
+    public User(String username, String fullname, String password, int phone) {
+        this.username = username;
+        this.fullname = fullname;
+        this.password = password;
+        this.phone = phone;
+    }
+
+    public int getPhone() {
         return phone;
     }
 

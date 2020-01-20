@@ -39,14 +39,22 @@ public class MainMenuFragment extends MvpAppCompatFragment {
         unbinder = ButterKnife.bind(this, v);
 
         mBottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
+            Fragment fragment;
             if (menuItem.getItemId() == R.id.fragment_map) {
-                FragmentManager manager = getFragmentManager();
-                if (manager != null) {
-                    manager.beginTransaction()
-                            .replace(R.id.main_container, new MapFragment(), MapFragment.TAG)
-                            .commit();
-                }
+                fragment = new MapFragment();
+            } else if (menuItem.getItemId() == R.id.fragment_waste_recycler) {
+                fragment = new InformationAboutUtilFragment();
+            } else {
+                return false;
             }
+
+            FragmentManager manager = getFragmentManager();
+            if (manager != null) {
+                manager.beginTransaction()
+                        .replace(R.id.main_container, fragment, MapFragment.TAG)
+                        .commit();
+            }
+
             return true;
         });
 

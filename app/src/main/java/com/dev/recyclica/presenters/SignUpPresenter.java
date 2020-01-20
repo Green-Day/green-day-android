@@ -5,6 +5,7 @@ import android.util.Log;
 import com.dev.recyclica.api.Api;
 import com.dev.recyclica.api.ApiFactory;
 import com.dev.recyclica.dto.Answer;
+import com.dev.recyclica.dto.Error;
 import com.dev.recyclica.dto.User;
 import com.dev.recyclica.views.SignUpView;
 
@@ -32,44 +33,38 @@ public class SignUpPresenter extends MvpPresenter<SignUpView> {
     public void registrationWithPhone(String username,
                                       String fullname,
                                       String password,
-                                      String email) {
-        Call<Answer> call = api.getRegistratedUser(new User(username, fullname, password, email),
-                "application/json");
-        call.enqueue(new Callback<Answer>() {
-            @Override
-            public void onResponse(@NotNull Call<Answer> call, @NotNull Response<Answer> response) {
-                if (response.isSuccessful()) {
-                    Answer answer = response.body();
-                    if (answer != null && answer.getUser() != null) {
-                        viewState.showMessage("SUCCESS");
-                    } else if (answer != null && answer.getError() != null) {
-                        viewState.showMessage(answer.getError());
-                    } else {
-                        viewState.showMessage("ERROR");
-                    }
-                } else {
-                    viewState.showMessage(String.valueOf(response.code()));
-                }
-            }
+                                      int phone) {
+        processRequest(new User(username, fullname, password, phone));
 
-            @Override
-            public void onFailure(@NotNull Call<Answer> call, @NotNull Throwable t) {
-                viewState.showMessage(t.getMessage());
-            }
-        });
     }
 
     public void registrationWithEmail(String username,
                                       String fullname,
                                       String password,
                                       String email) {
-
+        processRequest(new User(username, fullname, password, email));
     }
 
-    public void registrationWithEmailAndPhone(String username,
-                                              String fullname,
-                                              String password,
-                                              String email,
-                                              int phone) {
+    private void processRequest(User newUser) {
+        viewState.showProgressBar();
+        Call<Error> call = api.getRegistratedUser(newUser,
+                "application/json");
+        call.enqueue(new Callback<Error>() {
+            @Override
+            public void onResponse(@NotNull Call<Error> call, @NotNull Response<Error> response) {
+                if (response.isSuccessful() && response.code() == 200) {
+                    viewState.moveToSignIn();
+                } else {
+                    if (response.body() != null && response.body().getError() != null)
+                        viewState.showMessage(response.body().getError());
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Error> call, @NotNull Throwable t) {
+                viewState.showMessage(t.getMessage());
+            }
+        });
+        viewState.hideProgressBar();
     }
 }

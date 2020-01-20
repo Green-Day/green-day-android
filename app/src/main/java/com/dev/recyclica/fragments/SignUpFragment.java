@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,23 +42,18 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
     @BindView(R.id.firstPasswordLayout)
     TextInputLayout mFirstTextLayout;
 
+    @BindView(R.id.pb_sign_up)
+    ProgressBar mProgressBarSignUp;
+
     @InjectPresenter
     SignUpPresenter presenter;
 
     @OnClick(R.id.bt_sign_in)
     void singUp() {
-        presenter.registrationWithPhone(mEditTextLogin.getText().toString(),
+        presenter.registrationWithEmail(mEditTextLogin.getText().toString(),
                 mEditTextLogin.getText().toString(),
                 mEditTextFirstPassword.getText().toString(),
                 "kavoo@mail.ru");
-//        final FragmentManager manager = getFragmentManager();
-//        if (manager != null) {
-//            final Fragment fragment = manager.findFragmentByTag(AuthorizationFragment.TAG);
-//            if (fragment != null)
-//                manager.beginTransaction()
-//                        .replace(R.id.container, fragment, AuthorizationFragment.TAG)
-//                        .commit();
-//        }
 
     }
 
@@ -85,5 +81,27 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
         } else {
             Toast.makeText(getActivity(), "String is null", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void showProgressBar() {
+        mProgressBarSignUp.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        mProgressBarSignUp.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void moveToSignIn() {
+        final FragmentManager manager = getFragmentManager();
+        if (manager != null) {
+            final Fragment fragment = new SignInFragment();
+            manager.beginTransaction()
+                    .replace(R.id.activity_container, fragment, SignInFragment.TAG)
+                    .commit();
+        }
+
     }
 }
