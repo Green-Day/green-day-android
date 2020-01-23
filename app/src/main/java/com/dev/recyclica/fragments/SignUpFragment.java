@@ -18,6 +18,8 @@ import com.dev.recyclica.presenters.SignUpPresenter;
 import com.dev.recyclica.views.SignUpView;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.regex.Pattern;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,24 +42,43 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
     EditText mEditTextSecondPassword;
 
     @BindView(R.id.firstPasswordLayout)
-    TextInputLayout mFirstTextLayout;
+    TextInputLayout mFirstPasswordTextLayout;
+
+    @BindView(R.id.secondPasswordLayout)
+    TextInputLayout mSecondPasswordTextLayout;
+
+    @BindView(R.id.et_email)
+    EditText mEditTextEmail;
 
     @BindView(R.id.pb_sign_up)
     ProgressBar mProgressBarSignUp;
+
+    @BindView(R.id.text_input_email)
+    TextInputLayout mTextInputEmail;
 
     @InjectPresenter
     SignUpPresenter presenter;
 
     @OnClick(R.id.bt_sign_in)
     void singUp() {
+        if (!mEditTextFirstPassword.getText().equals(mEditTextSecondPassword.getText())) {
+            mSecondPasswordTextLayout.setError(getString(R.string.error_password_is_not_repeat));
+            return;
+        }
+
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        Pattern pattern = Pattern.compile(regex);
+
+        if (!pattern.matcher(mEditTextEmail.getText()).matches()) {
+            mTextInputEmail.setError(getString(R.string.error_email_is_not_correct));
+            return;
+        }
+
         presenter.registrationWithEmail(mEditTextLogin.getText().toString(),
                 mEditTextLogin.getText().toString(),
                 mEditTextFirstPassword.getText().toString(),
-                "kavoo@mail.ru");
-
+                mEditTextEmail.getText().toString());
     }
-
-
 
     @Nullable
     @Override
@@ -104,4 +125,5 @@ public class SignUpFragment extends MvpAppCompatFragment implements SignUpView {
         }
 
     }
+
 }

@@ -29,6 +29,11 @@ public class InformationAboutUtilsAdapter extends RecyclerView.Adapter<Informati
         notifyItemChanged(0);
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
     @NonNull
     @Override
     public ViewHolderInformation onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

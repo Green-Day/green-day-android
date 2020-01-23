@@ -1,9 +1,7 @@
 package com.dev.recyclica.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,13 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.dev.recyclica.R;
-import com.google.android.material.bottomnavigation.BottomNavigationMenu;
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import moxy.MvpAppCompatFragment;
 
@@ -40,10 +35,13 @@ public class MainMenuFragment extends MvpAppCompatFragment {
 
         mBottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
             Fragment fragment;
+
             if (menuItem.getItemId() == R.id.fragment_map) {
                 fragment = new MapFragment();
             } else if (menuItem.getItemId() == R.id.fragment_waste_recycler) {
                 fragment = new InformationAboutUtilFragment();
+            } else if (menuItem.getItemId() == R.id.fragment_user_profile) {
+                fragment = new UserProfileFragment();
             } else {
                 return false;
             }
@@ -51,14 +49,15 @@ public class MainMenuFragment extends MvpAppCompatFragment {
             FragmentManager manager = getFragmentManager();
             if (manager != null) {
                 manager.beginTransaction()
-                        .replace(R.id.main_container, fragment, MapFragment.TAG)
+                        .replace(R.id.main_container, fragment, fragment.getTag())
                         .commit();
             }
 
             return true;
         });
 
-        mBottomNavigation.setOnNavigationItemReselectedListener(menuItem -> {});
+        mBottomNavigation.setOnNavigationItemReselectedListener(menuItem -> {
+        });
 
         return v;
     }

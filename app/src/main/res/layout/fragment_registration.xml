@@ -89,21 +89,28 @@
                 android:hint="@string/login"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                app:layout_constraintBottom_toTopOf="@+id/et_phone"
+                app:layout_constraintBottom_toTopOf="@+id/text_input_email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <EditText
-                android:id="@+id/et_phone"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="12"
-                android:hint="@string/phone"
-                android:importantForAutofill="no"
-                android:inputType="phone"
                 app:layout_constraintBottom_toTopOf="@+id/firstPasswordLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:hint="@string/email"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

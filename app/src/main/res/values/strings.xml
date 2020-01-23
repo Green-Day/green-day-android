@@ -28,4 +28,6 @@
     <string name="input_your_login_or_email">Введите логин или email</string>
     <string name="error_passwords_is_not_equals">Пароли различаются</string>
     <string name="error_login_or_email_is_empty">Логин или Email пустой</string>
+    <string name="error_password_is_not_repeat">Пароль не соответствует!</string>
+    <string name="error_email_is_not_correct">Email is not correct</string>
 </resources>
