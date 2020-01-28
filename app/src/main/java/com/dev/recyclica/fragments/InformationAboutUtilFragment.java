@@ -35,7 +35,7 @@ public class InformationAboutUtilFragment extends MvpAppCompatFragment {
 
         mRecyclerViewInformation.setAdapter(adapter);
         mRecyclerViewInformation.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        adapter.setInformationsList(AppConfig.getInformation());
+        adapter.setInformationsList(AppConfig.getFishInformation());
 
         return v;
     }

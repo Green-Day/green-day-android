@@ -30,4 +30,6 @@
     <string name="error_login_or_email_is_empty">Логин или Email пустой</string>
     <string name="error_password_is_not_repeat">Пароль не соответствует!</string>
     <string name="error_email_is_not_correct">Email is not correct</string>
+    <string name="recycle_points">%1$s пунктов переработки</string>
+    <string name="points_for_single_util">+%1$s баллов за 1 штуку</string>
 </resources>

@@ -52,7 +52,7 @@ public class InformationAboutUtilsAdapter extends RecyclerView.Adapter<Informati
         return informations.size();
     }
 
-    class ViewHolderInformation extends RecyclerView.ViewHolder {
+     class ViewHolderInformation extends RecyclerView.ViewHolder {
 
         private TextView mName;
         private TextView mBonuses;
@@ -67,8 +67,8 @@ public class InformationAboutUtilsAdapter extends RecyclerView.Adapter<Informati
 
         public void bind(InformationAboutUtil informationAboutUtil) {
             mName.setText(informationAboutUtil.getName());
-            mShipPoints.setText(String.valueOf(informationAboutUtil.getShipCounts()));
-            mBonuses.setText(String.valueOf(informationAboutUtil.getPoints()));
+            mShipPoints.setText(itemView.getContext().getString(R.string.recycle_points, String.valueOf(informationAboutUtil.getShipCounts())));
+            mBonuses.setText(itemView.getContext().getString(R.string.points_for_single_util, String.valueOf(informationAboutUtil.getPoints())));
         }
 
     }
