@@ -67,8 +67,8 @@ public class InformationAboutUtilsAdapter extends RecyclerView.Adapter<Informati
 
         public void bind(InformationAboutUtil informationAboutUtil) {
             mName.setText(informationAboutUtil.getName());
-            mShipPoints.setText(itemView.getContext().getString(R.string.recycle_points, String.valueOf(informationAboutUtil.getShipCounts())));
-            mBonuses.setText(itemView.getContext().getString(R.string.points_for_single_util, String.valueOf(informationAboutUtil.getPoints())));
+            mShipPoints.setText(itemView.getContext().getString(R.string.recycle_points, informationAboutUtil.getShipCounts()));
+            mBonuses.setText(itemView.getContext().getString(R.string.points_for_single_util, informationAboutUtil.getPoints()));
         }
 
     }

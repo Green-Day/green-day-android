@@ -16,10 +16,12 @@
 
     <style name="Title">
         <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/title</item>
     </style>
+
     <style name="Information">
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>

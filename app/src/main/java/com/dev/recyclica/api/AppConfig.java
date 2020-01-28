@@ -15,6 +15,9 @@ public class AppConfig {
         list.add(new InformationAboutUtil("Батарейки", 15, 15));
         list.add(new InformationAboutUtil("Батарейки", 15, 15));
         list.add(new InformationAboutUtil("Батарейки", 15, 15));
+        list.add(new InformationAboutUtil("Батарейки", 15, 15));
+        list.add(new InformationAboutUtil("Батарейки", 15, 15));
+        list.add(new InformationAboutUtil("Батарейки", 15, 15));
 
         return list;
     }
@@ -24,6 +27,11 @@ public class AppConfig {
         list.add(new ProfileOption("Темная тема", "Lorem ipsum for description", false));
         list.add(new ProfileOption("Хранить историю", "Lorem ipsum for description", false));
         list.add(new ProfileOption("Радуга", "Lorem ipsum for description", false));
+        list.add(new ProfileOption("Радуга", "Lorem ipsum for description", true));
+        list.add(new ProfileOption("Радуга", "Lorem ipsum for description", false));
+        list.add(new ProfileOption("Радуга", "Lorem ipsum for description", true));
+        list.add(new ProfileOption("Радуга", "Lorem ipsum for description", false));
+
         return list;
     }
 }

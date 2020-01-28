@@ -41,7 +41,7 @@ public class MainMenuFragment extends MvpAppCompatFragment {
             } else if (menuItem.getItemId() == R.id.fragment_waste_recycler) {
                 fragment = new InformationAboutUtilFragment();
             } else if (menuItem.getItemId() == R.id.fragment_user_profile) {
-                fragment = new UserProfileFragment();
+                fragment = UserProfileFragment.newInstance("Valery", "Starkovsky", 2020);
             } else {
                 return false;
             }
